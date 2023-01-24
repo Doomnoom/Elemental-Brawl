@@ -1,3 +1,58 @@
+
+function round(){
+    let result;
+    let playerSelection = prompt('Select element from the chart:');
+    playerSelection = playerSelection.toUpperCase();
+    let computerSelection = getComputerSelection();
+
+    if(playerSelection === computerSelection){
+        result = 'It\'s a draw!';
+    }
+    else if(playerSelection === 'WATER'){
+        if(computerSelection === 'FIRE' || computerSelection === 'METAL'){
+            result = 'Victorious!';
+        }
+        else{
+            result = 'Defeat!';
+        }
+    }
+    else if(playerSelection === 'FIRE'){
+        if(computerSelection === 'WOOD' || computerSelection === 'METAL'){
+            result = 'Victorious!';
+        }
+        else{
+            result = 'Defeat!';
+        }
+    }
+    else if(playerSelection === 'METAL'){
+        if(computerSelection === 'WOOD' || computerSelection === 'EARTH'){
+            result = 'Victorious!';
+        }
+        else{
+            result = 'Defeat!';
+        }  
+    }
+    else if(playerSelection === 'WOOD'){
+        if(computerSelection === 'EARTH' || computerSelection === 'WATER'){
+            result = 'Victorious!';
+        }
+        else{
+            result = 'Defeat!';
+        }   
+    }
+    else if(playerSelection === 'EARTH'){
+        if(computerSelection === 'FIRE' || computerSelection === 'WATER'){
+            result = 'Victorious!';
+        }
+        else{
+            result = 'Defeat!';
+        }
+    }
+
+    console.log('PC CHOICE: ' + computerSelection)
+    console.log(result);
+}
+
 function getComputerSelection(){
     let computerSelection;
     let roll = Math.floor(Math.random() * 5) +1;
@@ -25,6 +80,6 @@ function getComputerSelection(){
         break;
 
         default:
-            return computerSelection = 'error';
+            return computerSelection = 'ERROR';
     }
 }
