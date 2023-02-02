@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(136, 140, 141);
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    margin: 0 50px;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+}
+
+#result{
+    font-size: 240px;
+}
+
+.playerSelect{
+    position: absolute;
+    bottom: 50px;
+}
+
+#fire{
+    box-shadow: inset 0 0 30px 10px red;
+}
+
+#water{
+    box-shadow: inset 0 0 30px 10px blue;
+}
+
+#earth{
+    box-shadow: inset 0 0 30px 10px green;
+}
+
+#wood{
+    box-shadow: inset 0 0 30px 10px brown;
+}
+
+#metal{
+    box-shadow: inset 0 0 30px 10px silver;
+}

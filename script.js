@@ -1,56 +1,76 @@
+const buttons = document.querySelectorAll('.select');
+const result = document.querySelector('#result');
+const pScore = document.querySelector('#pScore');
+const cScore = document.querySelector('#cScore');
 
-function round(){
-    let result;
-    let playerSelection = prompt('Select element from the chart:');
-    playerSelection = playerSelection.toUpperCase();
+let playerScore = 0;
+let computerScore = 0;
+
+buttons.forEach(buttons => buttons.addEventListener('click', beginRound))
+
+
+function beginRound(e){
+    let playerSelection = e.currentTarget.id;
     let computerSelection = getComputerSelection();
+    result.textContent = determineWinner(playerSelection, computerSelection)
+    pScore.textContent = `Player Score: ${playerScore}`
+    cScore.textContent = `Computer Score: ${computerScore}`
+}
 
+function determineWinner(playerSelection, computerSelection){
     if(playerSelection === computerSelection){
-        result = 'It\'s a draw!';
+    return 'tie';
     }
-    else if(playerSelection === 'WATER'){
-        if(computerSelection === 'FIRE' || computerSelection === 'METAL'){
-            result = 'Victorious!';
+    else if(playerSelection === 'water'){
+        if(computerSelection === 'fire' || computerSelection === 'metal'){
+            playerScore++;
+            return 'player';
         }
         else{
-            result = 'Defeat!';
+            computerScore++;
+            return 'computer';
         }
     }
-    else if(playerSelection === 'FIRE'){
-        if(computerSelection === 'WOOD' || computerSelection === 'METAL'){
-            result = 'Victorious!';
+    else if(playerSelection === 'fire'){
+        if(computerSelection === 'wood' || computerSelection === 'metal'){
+            playerScore++;
+            return 'player';
         }
         else{
-            result = 'Defeat!';
+            computerScore++;
+            return 'computer';
         }
     }
-    else if(playerSelection === 'METAL'){
-        if(computerSelection === 'WOOD' || computerSelection === 'EARTH'){
-            result = 'Victorious!';
+    else if(playerSelection === 'metal'){
+        if(computerSelection === 'wood' || computerSelection === 'earth'){
+            playerScore++;
+            return 'player';
         }
         else{
-            result = 'Defeat!';
+            computerScore++;
+            return 'computer';
         }  
     }
-    else if(playerSelection === 'WOOD'){
-        if(computerSelection === 'EARTH' || computerSelection === 'WATER'){
-            result = 'Victorious!';
+    else if(playerSelection === 'wood'){
+        if(computerSelection === 'earth' || computerSelection === 'water'){
+            playerScore++;
+            return 'player';
         }
         else{
-            result = 'Defeat!';
+            computerScore++;
+            return 'computer';
         }   
     }
-    else if(playerSelection === 'EARTH'){
-        if(computerSelection === 'FIRE' || computerSelection === 'WATER'){
-            result = 'Victorious!';
+    else if(playerSelection === 'earth'){
+        if(computerSelection === 'fire' || computerSelection === 'water'){
+            playerScore++;
+            return 'player';
         }
         else{
-            result = 'Defeat!';
+            computerScore++;
+            return 'computer';
         }
     }
-
-    console.log('PC CHOICE: ' + computerSelection)
-    console.log(result);
 }
 
 function getComputerSelection(){
@@ -60,23 +80,23 @@ function getComputerSelection(){
     switch(roll){
 
         case roll = 1:
-            return computerSelection = 'WATER';
+            return computerSelection = 'water';
         break;
 
         case roll = 2:
-            return computerSelection = 'FIRE';
+            return computerSelection = 'fire';
         break;
 
         case roll = 3:
-            return computerSelection = 'METAL';
+            return computerSelection = 'metal';
         break;
 
         case roll = 4:
-            return computerSelection = 'WOOD';
+            return computerSelection = 'wood';
         break;
 
         case roll = 5:
-            return computerSelection = 'EARTH';
+            return computerSelection = 'earth';
         break;
 
         default:
